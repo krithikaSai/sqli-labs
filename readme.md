@@ -12,8 +12,8 @@ This is a simple, fun app created to try out SQL injections.
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/REPO_NAME.git
-cd REPO_NAME
+git clone https://github.com/krithikaSai/sqli-labs.git
+cd sqli-labs
 ```
 
 2. Install Dependencies:
