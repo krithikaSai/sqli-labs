@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <section class="level-info">
+    <h1>Admin Dashboard</h1>
+<hr>
+    
+
+    <h2>Product Record</h2>
+    <table border="1" style="margin-left: auto; margin-right: auto;">
+        <tr>
+            <th>ID</th><th>Name</th><th>Price</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>₹{{ product.price }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+    <h2>User Logs</h2>
+    <table border="1" style="margin-left: auto; margin-right: auto;">
+        <tr>
+            <th>ID</th><th>Username</th><th>Email</th><th>Is Admin</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.is_admin }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <script>
+        function showHint() {
+            document.getElementById('hint').style.display = 'block';
+        }
+    </script>
+
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul style="color: red;">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <hr>
+        <h2>Level 2: Modify Admin Logs</h2>
+<p>Here you can modify product prices, delete products, play around with user information, and access more secrets.</p>
+<p>If done correctly, you’ll see the manipulated result or a secret message.</p>
+
+<div style="border: 2px solid #ccc; padding: 15px; margin-bottom: 20px; border-radius: 10px;">
+     <p>Your goal: Manipulate the price or delete a product using SQL injection.</p>
+        
+    
+
+    <form method="POST" action="{{ url_for('level2') }}">
+        <label for="product_id">Enter Product ID:</label>
+        <input type="text" name="product_id" id="product_id">
+        <button type="submit">Modify/Delete Product</button>
+    </form>
+</div>
+
+<div style="border: 2px solid #ccc; padding: 15px; margin-bottom: 20px; border-radius: 10px;">
+
+<p>Your goal: Change admin status or delete users using SQL injection logic.</p>
+
+<form method="POST" action="{{ url_for('level2_user') }}">
+    <label for="user_input">Enter User ID:</label>
+    <input type="text" name="user_input" id="user_input">
+    <button type="submit">Modify/Delete User</button>
+</form>
+</div>
+<button onclick="showHint()">Get a Hint</button>
+        <div id="hint" style="display:none;">
+            <p>Try playing around using the Product ID and Admin ID with CRUD operations to inject a malicious query. Example: 1 UPDATE True
+ </p>        
+        </div>
+<hr>
+<h2>Advance to Level 3</h2>
+<p>Think you're done here? Try your luck with blind SQL injection on the next challenge.</p>
+<a href="{{ url_for('level3') }}">
+    <button>Go to Level 3</button>
+</a>
+
+    </section>
+</body>
+</html>
