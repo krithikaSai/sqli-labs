@@ -37,18 +37,18 @@ python app.py
 
 ### SQLi Challenges
 
-##Level 1
+LEVEL 1
 
 Try logging into the admin page by injecting different payloads into the password field until you gain access.
 
 ![image of level 1 challenge](screenshots/Level1.png)
 
-##Level 2
+LEVEL 2
 
 Exploit the product and user input fields to delete or update records.
 ![image of level 2 challenge](screenshots/Level2.png)
 
-##Level 3
+LEVEL 3
 
 Guess and enter random usernames to infer whether or not they exist in the database (based on response time)
 ![image of level 3 challenge](screenshots/Level3.png)
