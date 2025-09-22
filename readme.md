@@ -46,10 +46,12 @@ Try logging into the admin page by injecting different payloads into the passwor
 LEVEL 2
 
 Exploit the product and user input fields to delete or update records.
+
 ![image of level 2 challenge](screenshots/Level2.png)
 
 LEVEL 3
 
 Guess and enter random usernames to infer whether or not they exist in the database (based on response time)
+
 ![image of level 3 challenge](screenshots/Level3.png)
 
